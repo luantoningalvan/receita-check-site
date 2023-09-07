@@ -4,115 +4,23 @@ import { GetServerSideProps } from "next";
 import { Recipe } from "../common/Recipe";
 import { api } from "../services/api";
 import { RecipeCard } from "../components/RecipeCard";
+import { parseCookies } from "nookies";
 
 export const getServerSideProps: GetServerSideProps<{
   recipes: Recipe[];
-}> = async () => {
+}> = async (ctx) => {
+  const getSavedIngredients = parseCookies(ctx)["@ReceitaCheck:ingredients"];
+
+  let alreadyOwnsIngredients = [];
+
+  if (getSavedIngredients) {
+    alreadyOwnsIngredients = JSON.parse(getSavedIngredients).map(
+      (ingredient) => ingredient.id
+    );
+  }
+
   const res = await api.post("recipes/list", {
-    ingredients: [
-      "63509a10827a992a5af00605",
-      "63509acc827a992a5af00613",
-      "63509aaa827a992a5af00610",
-      "63509771827a992a5af005f8",
-      "63509a65827a992a5af0060b",
-      "635099aa827a992a5af005ff",
-      "6353355b827a992a5af00614",
-      "635489f1dce3d50eae0f82a9",
-      "63534c47827a992a5af00617",
-      "635466dfdce3d50eae0f82a7",
-      "63509a70827a992a5af0060c",
-      "635099d2827a992a5af00602",
-      "6354594edce3d50eae0f82a5",
-      "635551e2dce3d50eae0f82b2",
-      "635551fddce3d50eae0f82b4",
-      "6355d114dce3d50eae0f82b9",
-      "63555064dce3d50eae0f82af",
-      "633f93270c2c5be8bd4a7c21",
-      "63473a64a5fa1fd50c02e10c",
-      "635458ecdce3d50eae0f82a4",
-      "6355d0f8dce3d50eae0f82b6",
-      "635709d0dce3d50eae0f82c3",
-      "635709ffdce3d50eae0f82c4",
-      "63570c7cdce3d50eae0f82cc",
-      "63573393dce3d50eae0f82e2",
-      "63573909dce3d50eae0f82f2",
-      "637bf2775126d21a9414c9db",
-      "633f933d0c2c5be8bd4a7c23",
-      "6346f58fa5fa1fd50c02e109",
-      "6348cdaaa5fa1fd50c02e110",
-      "635489c0dce3d50eae0f82a8",
-      "635551e8dce3d50eae0f82b3",
-      "6355d103dce3d50eae0f82b8",
-      "63570a3edce3d50eae0f82c5",
-      "63570ea1dce3d50eae0f82d3",
-      "63570eb6dce3d50eae0f82d4",
-      "63573350dce3d50eae0f82e0",
-      "63573364dce3d50eae0f82e1",
-      "63573494dce3d50eae0f82e7",
-      "635739f5dce3d50eae0f82f7",
-      "63573ba0dce3d50eae0f82f8",
-      "63574088dce3d50eae0f82fe",
-      "6350994f827a992a5af005f9",
-      "63509964827a992a5af005fc",
-      "63509a26827a992a5af00607",
-      "63509a82827a992a5af0060d",
-      "63509a96827a992a5af0060e",
-      "63509abe827a992a5af00612",
-      "63533b07827a992a5af00616",
-      "6354418b7432b0098c52574c",
-      "635496e3dce3d50eae0f82ab",
-      "63555054dce3d50eae0f82ae",
-      "6355506edce3d50eae0f82b0",
-      "63570242dce3d50eae0f82bf",
-      "635709a8dce3d50eae0f82c2",
-      "63570b46dce3d50eae0f82c9",
-      "63570d89dce3d50eae0f82cf",
-      "63570e1fdce3d50eae0f82d1",
-      "63570e4adce3d50eae0f82d2",
-      "63570fd3dce3d50eae0f82d7",
-      "63572f38dce3d50eae0f82da",
-      "63573339dce3d50eae0f82df",
-      "635733f1dce3d50eae0f82e3",
-      "63573446dce3d50eae0f82e5",
-      "6357359bdce3d50eae0f82eb",
-      "635737a5dce3d50eae0f82ee",
-      "635738e6dce3d50eae0f82f1",
-      "635739c6dce3d50eae0f82f5",
-      "635739d8dce3d50eae0f82f6",
-      "63574064dce3d50eae0f82fd",
-      "63574095dce3d50eae0f82ff",
-      "635740addce3d50eae0f8300",
-      "6358478fdce3d50eae0f8304",
-      "635848a9dce3d50eae0f8306",
-      "636074f876045ea2397785e2",
-      "6360750876045ea2397785e3",
-      "6360757776045ea2397785e4",
-      "6360759376045ea2397785e5",
-      "63607f3f76045ea2397785e8",
-      "63607f4e76045ea2397785e9",
-      "6360805a76045ea2397785eb",
-      "6360807476045ea2397785ec",
-      "633f93340c2c5be8bd4a7c22",
-      "63509955827a992a5af005fa",
-      "6350995b827a992a5af005fb",
-      "6350997d827a992a5af005fd",
-      "635099a1827a992a5af005fe",
-      "635099bd827a992a5af00600",
-      "635099c8827a992a5af00601",
-      "635099e2827a992a5af00603",
-      "63509a08827a992a5af00604",
-      "63509a1b827a992a5af00606",
-      "63509a39827a992a5af00608",
-      "63509a49827a992a5af00609",
-      "63509a59827a992a5af0060a",
-      "63509aa2827a992a5af0060f",
-      "63509ab4827a992a5af00611",
-      "635446767432b0098c52574e",
-      "635711cfdce3d50eae0f82d9",
-      "635844f1dce3d50eae0f8303",
-      "63584a80dce3d50eae0f8308",
-      "63584aabdce3d50eae0f8309",
-    ],
+    ingredients: alreadyOwnsIngredients,
   });
 
   return { props: { recipes: res.data } };

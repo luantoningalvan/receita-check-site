@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
 import {
+  Box,
   ChakraProvider,
   extendTheme,
   withDefaultColorScheme,
@@ -44,8 +45,10 @@ const theme = extendTheme(
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <Header />
-      <Component {...pageProps} />
+      <Box minH="100vh">
+        <Header />
+        <Component {...pageProps} />
+      </Box>
       <Footer />
     </ChakraProvider>
   );
