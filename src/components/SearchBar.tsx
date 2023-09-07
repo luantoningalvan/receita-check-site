@@ -5,13 +5,20 @@ interface SearchBarProps extends BoxProps {
   search: string;
   setSearch: (search: string) => void;
   placeholder?: string;
+  onSearchSubmit?: (text: string) => void;
 }
 
 export function SearchBar(props: SearchBarProps) {
-  const { search, setSearch, placeholder, ...rest } = props;
+  const { search, setSearch, placeholder, onSearchSubmit, ...rest } = props;
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    typeof onSearchSubmit === "function" && onSearchSubmit(search);
+  }
 
   return (
     <Box
+      as="form"
       h="48px"
       bg="gray.100"
       rounded="full"
@@ -23,6 +30,7 @@ export function SearchBar(props: SearchBarProps) {
       _focusWithin={{
         boxShadow: "outline",
       }}
+      onSubmit={handleSubmit}
       {...rest}
     >
       <Icon mr={4} boxSize={6} as={MagnifyingGlass} color="gray.500" />

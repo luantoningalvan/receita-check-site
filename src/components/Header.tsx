@@ -1,11 +1,13 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { Box, Button, Image } from "@chakra-ui/react";
 import { ListChecks } from "@phosphor-icons/react";
 import { SearchBar } from "./SearchBar";
 
 export function Header() {
   const [search, setSearch] = React.useState("");
+  const router = useRouter();
 
   return (
     <Box
@@ -26,6 +28,11 @@ export function Header() {
         search={search}
         setSearch={setSearch}
         placeholder="Pesquisar receitas"
+        onSearchSubmit={(text) => {
+          if (!text) return;
+
+          router.push(`/busca/${text}`);
+        }}
       />
 
       <Box flex={1} display="flex" justifyContent="flex-end">
