@@ -115,7 +115,7 @@ export default function ShowRecipe({ recipe }: { recipe: Recipe }) {
         {recipe.ingredients.map((ingredient, index) => (
           <Fragment key={index}>
             {ingredient.startsWith("#") ? (
-              <Heading size="md" mt={6}>
+              <Heading size="md" mb={2}>
                 {ingredient.replace("#", "")}
               </Heading>
             ) : (
@@ -143,7 +143,7 @@ export default function ShowRecipe({ recipe }: { recipe: Recipe }) {
         {recipe.preparation_mode.map((step, index) => (
           <Fragment key={index}>
             {step.startsWith("#") ? (
-              <Heading size="md" mb={6}>
+              <Heading size="md" mb={2}>
                 {step.replace("#", "")}
               </Heading>
             ) : (

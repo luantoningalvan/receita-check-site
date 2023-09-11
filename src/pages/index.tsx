@@ -33,6 +33,10 @@ export default function Home({ recipes }: { recipes: Recipe[] }) {
     <>
       <Head>
         <title>Receita Check - Receitas com o que você tem</title>
+        <meta
+          name="description"
+          content="Encontre diversas receitas deliciosas para cozinhar que utilizam somente os ingredientes que você possui."
+        />
       </Head>
 
       <Container my={8} w="full" maxW="1280px">
