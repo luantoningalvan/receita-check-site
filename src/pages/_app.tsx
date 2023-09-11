@@ -8,6 +8,7 @@ import {
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import Head from "next/head";
+import Script from "next/script";
 
 const theme = extendTheme(
   {
@@ -49,12 +50,15 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5651757169642458"
-          crossOrigin="anonymous"
-        ></script>
       </Head>
+
+      <Script
+        id="Adsense-id"
+        data-ad-client="ca-pub-5651757169642458"
+        async
+        strategy="beforeInteractive"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+      />
       <Box minH="100vh">
         <Header />
         <Component {...pageProps} />
