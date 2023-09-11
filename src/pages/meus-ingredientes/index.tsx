@@ -6,6 +6,7 @@ import { Ingredient } from "../../common/Ingredient";
 import { IngredientCard } from "../../components/IngredientCard";
 import { SearchBar } from "../../components/SearchBar";
 import { parseCookies, setCookie } from "nookies";
+import Head from "next/head";
 
 interface MyIngredientsProps {
   ingredients: Ingredient[];
@@ -108,6 +109,10 @@ export default function MyIngredients(props: MyIngredientsProps) {
 
   return (
     <Container my={8} w="full" maxW="1280px">
+      <Head>
+        <title>Meus Ingredients - Receita Check</title>
+      </Head>
+
       <SimpleGrid columns={2} spacing={8}>
         <Box>
           <Heading size="md" fontWeight="normal" color="gray.600">

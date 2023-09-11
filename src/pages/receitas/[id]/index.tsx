@@ -13,6 +13,7 @@ import { Recipe } from "../../../common/Recipe";
 import { Fragment } from "react";
 import { api } from "../../../services/api";
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 
 export const getServerSideProps: GetServerSideProps<{
   recipe: Recipe;
@@ -27,9 +28,12 @@ export const getServerSideProps: GetServerSideProps<{
   }
 };
 
-export default function ShowRecipe({ recipe }) {
+export default function ShowRecipe({ recipe }: { recipe: Recipe }) {
   return (
     <Container my={8} w="full" maxW="container.lg">
+      <Head>
+        <title>{recipe.title} - Receita Check</title>
+      </Head>
       <Box pos="relative" w="full" h="460px">
         <Image
           src={recipe.image_url}
