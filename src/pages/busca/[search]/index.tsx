@@ -1,18 +1,9 @@
 import Head from "next/head";
-import {
-  Box,
-  Button,
-  Container,
-  Flex,
-  Heading,
-  SimpleGrid,
-  Text,
-} from "@chakra-ui/react";
+import { Container, Heading, SimpleGrid } from "@chakra-ui/react";
 import { GetServerSideProps } from "next";
 import { Recipe } from "../../../common/Recipe";
 import { api } from "../../../services/api";
 import { RecipeCard } from "../../../components/RecipeCard";
-import { SmileySad } from "@phosphor-icons/react";
 import { EmptyState } from "../../../components/EmptyState";
 
 interface SearchProps {

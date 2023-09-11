@@ -1,5 +1,5 @@
 import { Box, chakra, Icon, IconButton, BoxProps } from "@chakra-ui/react";
-import { MagnifyingGlass, X } from "@phosphor-icons/react";
+import { LuSearch, LuX } from "react-icons/lu";
 
 interface SearchBarProps extends BoxProps {
   search: string;
@@ -33,7 +33,7 @@ export function SearchBar(props: SearchBarProps) {
       onSubmit={handleSubmit}
       {...rest}
     >
-      <Icon mr={4} boxSize={6} as={MagnifyingGlass} color="gray.500" />
+      <Icon mr={4} boxSize={6} as={LuSearch} color="gray.500" />
 
       <chakra.input
         placeholder={placeholder}
@@ -52,7 +52,7 @@ export function SearchBar(props: SearchBarProps) {
           variant="ghost"
           colorScheme="gray"
           rounded="full"
-          icon={<Icon boxSize={6} as={X} color="gray.800" />}
+          icon={<Icon boxSize={6} as={LuX} color="gray.800" />}
           onClick={() => setSearch("")}
         />
       )}

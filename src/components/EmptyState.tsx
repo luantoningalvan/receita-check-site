@@ -1,5 +1,5 @@
 import { Flex, Text } from "@chakra-ui/react";
-import { SmileySad } from "@phosphor-icons/react";
+import { LuSearchX } from "react-icons/lu";
 
 export function EmptyState({ message }: { message: string }) {
   return (
@@ -11,7 +11,7 @@ export function EmptyState({ message }: { message: string }) {
       mt={20}
       mx="auto"
     >
-      <SmileySad size={64} />
+      <LuSearchX size={64} />
       <Text textAlign="center" fontSize="lg" mt={4}>
         {message}
       </Text>

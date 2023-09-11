@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Box, Button, Image } from "@chakra-ui/react";
-import { ListChecks } from "@phosphor-icons/react";
+import { LuListChecks } from "react-icons/lu";
 import { SearchBar } from "./SearchBar";
 
 export function Header() {
@@ -37,7 +37,7 @@ export function Header() {
 
       <Box flex={1} display="flex" justifyContent="flex-end">
         <Button
-          leftIcon={<ListChecks size={20} />}
+          leftIcon={<LuListChecks size={20} />}
           variant="outline"
           rounded="full"
           as={Link}

@@ -4,65 +4,15 @@ import {
   Container,
   Flex,
   Heading,
-  Icon,
-  IconButton,
   Image,
   Stack,
   Text,
 } from "@chakra-ui/react";
-import {
-  Clock,
-  Heart,
-  Star,
-  StarHalf,
-  UsersThree,
-} from "@phosphor-icons/react";
+import { LuClock, LuUsers } from "react-icons/lu";
 import { Recipe } from "../../../common/Recipe";
 import { Fragment } from "react";
 import { api } from "../../../services/api";
 import { GetServerSideProps } from "next";
-
-// const recipe: Recipe = {
-//   id: "1",
-//   title: "Bolo de morango",
-//   category: "Bolos",
-//   hash: "",
-//   how_many_people: 20,
-//   preparation_time: 60,
-//   image_url: "https://img.cybercook.com.br/receitas/12/bolo-de-morango-3.jpeg",
-//   ingredients: [
-//     "# Massa",
-//     "1/2 xícara de chá (xícara 200 ml) de leite",
-//     "1 e 1/2 xícara de chá (xícara 200 ml) de farinha de trigo",
-//     "1 colher de sopa de fermento químico em pó",
-//     "1 pitada de sal",
-//     "1 colher de café de essência de baunilha",
-//     "1 xícara de chá (xícara 200 ml) de açúcar",
-//     "3 ovos",
-//     "# Cobertura",
-//     "1/2 xícara de chá (xícara 200 ml) de água fervente",
-//     "1 e 1/2 xícara de chá (xícara 200 ml) de açúcar refinado",
-//     "1 envelope de gelatina incolor e sem sabor (12 gramas)",
-//     "350g de morangos",
-//   ],
-//   ingredients_ref: [],
-//   preparation_mode: [
-//     "# Massa",
-//     "Em uma tigela adicione os ovos e então separe as gemas da clara, reserve as gemas e então bata as claras por 3 minutos ou até chegarem ao ponto de neve.",
-//     "Logo que as claras atingirem o ponto de neve volte as gemas, uma por vez, batendo bem até obter um creme bem fofo.",
-//     "Agora aos poucos e sem parar de bater acrescente o açúcar, bate bem até obter um creme.",
-//     "Logo em seguida acrescente a essência de baunilha, sal, leite morno e a farinha de trigo peneirada depois basta continuar batendo até a mistura ficar bem homogênea.",
-//     "Para finalizar, acrescente o fermento para bolo e com uma colher ou fûe misture delicadamente até incorporar o fermento.",
-//     "Transfira a massa para uma forma untada e enfarinhada e então leve para assar em forno preaquecido a 180° por 35 minutos ou até dourar.",
-//     "Passado o tempo retire o bolo do forno, aguarde amornar e então desenforme. Reserve.",
-//     "# Cobertura",
-//     "Na batedeira adicione a gelatina incolor seguida pela água fervente, agora comece a bater em velocidade baixa até que uma espuminha comece a se formar sobre o líquido.",
-//     "Agora, acrescente o açúcar refinado e então comece a bater em velocidade alta por cerca de 20 minutos ou até obter um glacê liso e bonito.",
-//     "Quando chegar ao ponto certo pare de bater e comece a cobrir o bolo espalhando pelas paredes de modo que a cobertura fique lisa e bonita.",
-//     "Corte os morangos em lâminas finas e comece a organizar organicamente sobre o bolo, de modo a formar uma bela rosa.",
-//     "Para finalizar, coloque o restante das lâminas na base do bolo para decorar. Sirva gelado.",
-//   ],
-// };
 
 export const getServerSideProps: GetServerSideProps<{
   recipe: Recipe;
@@ -131,13 +81,13 @@ export default function ShowRecipe({ recipe }) {
       <Flex mt={8} justifyContent="space-between" alignItems="center">
         <Flex direction="row" gap={4}>
           <Flex gap={2} alignItems="center">
-            <UsersThree size={26} />
+            <LuUsers size={24} />
             <Text fontSize="lg" lineHeight={1}>
               {recipe.how_many_people} porções
             </Text>
           </Flex>
           <Flex gap={2} alignItems="center">
-            <Clock size={26} />
+            <LuClock size={24} />
             <Text fontSize="lg" lineHeight={1}>
               {recipe.preparation_time} min.
             </Text>

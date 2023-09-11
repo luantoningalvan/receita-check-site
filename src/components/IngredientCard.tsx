@@ -1,6 +1,6 @@
 import { Box, Icon, IconButton, Image, Text } from "@chakra-ui/react";
 import { Ingredient } from "../common/Ingredient";
-import { Minus, Plus } from "@phosphor-icons/react";
+import { LuPlus, LuMinus } from "react-icons/lu";
 
 interface IngredientCardProps {
   ingredient: Ingredient;
@@ -36,7 +36,7 @@ export function IngredientCard(props: IngredientCardProps) {
         aria-label="Adicionar ingrediente"
         rounded="full"
         onClick={() => onAction(ingredient)}
-        icon={<Icon boxSize={6} as={mode === "add" ? Plus : Minus} />}
+        icon={<Icon boxSize={6} as={mode === "add" ? LuPlus : LuMinus} />}
       />
     </Box>
   );
