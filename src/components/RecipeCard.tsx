@@ -15,7 +15,7 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
       rounded="lg"
       tabIndex={0}
       as={Link}
-      href={`/receitas/${recipe.id}`}
+      href={`/receitas/${recipe.slug}`}
       outline="none"
       _focus={{
         boxShadow: "outline",

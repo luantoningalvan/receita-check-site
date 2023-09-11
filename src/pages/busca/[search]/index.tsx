@@ -12,8 +12,8 @@ import { GetServerSideProps } from "next";
 import { Recipe } from "../../../common/Recipe";
 import { api } from "../../../services/api";
 import { RecipeCard } from "../../../components/RecipeCard";
-import { parseCookies } from "nookies";
 import { SmileySad } from "@phosphor-icons/react";
+import { EmptyState } from "../../../components/EmptyState";
 
 interface SearchProps {
   recipes: Recipe[];
@@ -25,21 +25,9 @@ export const getServerSideProps: GetServerSideProps<SearchProps> = async (
 ) => {
   const { search } = ctx.params;
 
-  const getSavedIngredients = parseCookies(ctx)["@ReceitaCheck:ingredients"];
-
-  let alreadyOwnsIngredients = [];
-
-  if (getSavedIngredients) {
-    alreadyOwnsIngredients = JSON.parse(getSavedIngredients).map(
-      (ingredient) => ingredient.id
-    );
-  }
-
   const res = await api.post(
     "recipes/list",
-    {
-      ingredients: alreadyOwnsIngredients,
-    },
+    {},
     {
       params: {
         title: search,
@@ -66,17 +54,7 @@ export default function Search({ recipes, search }: SearchProps) {
         </Heading>
 
         {recipes.length === 0 && (
-          <Flex
-            justifyContent="center"
-            mt={20}
-            alignItems="center"
-            flexDir="column"
-          >
-            <SmileySad size={64} />
-            <Text textAlign="center" fontSize="lg" mt={4}>
-              Nenhuma receita encontrada
-            </Text>
-          </Flex>
+          <EmptyState message="Nenhuma receita encontrada para a sua busca" />
         )}
         <SimpleGrid spacing={8} columns={3}>
           {recipes.map((recipe) => (
