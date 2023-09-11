@@ -49,6 +49,11 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5651757169642458"
+          crossOrigin="anonymous"
+        ></script>
       </Head>
       <Box minH="100vh">
         <Header />
