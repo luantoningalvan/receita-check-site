@@ -44,6 +44,7 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
         src={recipe.image_url}
         alt={recipe.title}
         borderTopRadius="lg"
+        loading="lazy"
       />
 
       <Box
