@@ -9,7 +9,9 @@ export function Footer() {
         maxW="1240px"
         display="flex"
         justifyContent="space-between"
+        flexDir={["column", "column", "row"]}
         alignItems="center"
+        gap={4}
       >
         <Image src="/logo.svg" alt="ReceitaCheck" h="40px" w="auto" />
 

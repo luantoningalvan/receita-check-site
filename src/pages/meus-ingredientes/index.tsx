@@ -113,7 +113,7 @@ export default function MyIngredients(props: MyIngredientsProps) {
         <title>Meus Ingredients - Receita Check</title>
       </Head>
 
-      <SimpleGrid columns={2} spacing={8}>
+      <SimpleGrid columns={[1, 1, 2]} spacing={8}>
         <Box>
           <Heading size="md" fontWeight="normal" color="gray.600">
             Incluir novo ingrediente
@@ -128,7 +128,7 @@ export default function MyIngredients(props: MyIngredientsProps) {
 
           <Box
             mt={4}
-            maxH="calc(100vh - 250px)"
+            maxH={["200px", "200px", "calc(100vh - 250px)"]}
             overflow="auto"
             css={{
               scrollbarGutter: "stable",

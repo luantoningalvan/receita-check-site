@@ -43,7 +43,7 @@ export default function Home({ recipes }: { recipes: Recipe[] }) {
         {recipes.length === 0 && (
           <EmptyState message="Nenhuma receita encontrada utilizando somente seus ingredientes" />
         )}
-        <SimpleGrid spacing={8} columns={3}>
+        <SimpleGrid spacing={8} columns={[1, 2, 3]}>
           {recipes.map((recipe) => (
             <RecipeCard recipe={recipe} key={recipe.id} />
           ))}

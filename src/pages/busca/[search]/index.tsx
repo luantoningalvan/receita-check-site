@@ -44,7 +44,7 @@ export default function Search({ recipes, search }: SearchProps) {
         {recipes.length === 0 && (
           <EmptyState message="Nenhuma receita encontrada para a sua busca" />
         )}
-        <SimpleGrid spacing={8} columns={3}>
+        <SimpleGrid spacing={8} columns={[1, 2, 3]}>
           {recipes.map((recipe) => (
             <RecipeCard recipe={recipe} key={recipe.id} />
           ))}

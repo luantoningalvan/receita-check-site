@@ -23,7 +23,7 @@ export function SearchBar(props: SearchBarProps) {
       bg="gray.100"
       rounded="full"
       w="full"
-      maxW="container.md"
+      maxW="600px"
       px={6}
       display="flex"
       alignItems="center"
