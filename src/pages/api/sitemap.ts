@@ -1,9 +1,11 @@
-import { Recipe } from "../common/Recipe";
-import { api } from "../services/api";
+import { Recipe } from "../../common/Recipe";
+import { api } from "../../services/api";
 
-const Sitemap = () => {};
+export default async function handler(req, res) {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/xml");
+  res.setHeader("Cache-control", "stale-while-revalidate, s-maxage=3600");
 
-export const getServerSideProps = async ({ res }) => {
   const baseUrl = {
     development: "http://localhost:3000",
     production: "https://receitacheck.com.br",
@@ -51,13 +53,6 @@ export const getServerSideProps = async ({ res }) => {
         .join("")}
     </urlset>
   `;
-  res.setHeader("Content-Type", "text/xml");
-  res.write(sitemap);
-  res.end();
 
-  return {
-    props: {},
-  };
-};
-
-export default Sitemap;
+  res.end(sitemap);
+}
