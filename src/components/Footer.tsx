@@ -1,4 +1,5 @@
-import { Box, Image } from "@chakra-ui/react";
+import { Box, Image, Link } from "@chakra-ui/react";
+import NextLink from "next/link";
 
 export function Footer() {
   return (
@@ -8,8 +9,18 @@ export function Footer() {
         maxW="1240px"
         display="flex"
         justifyContent="space-between"
+        alignItems="center"
       >
         <Image src="/logo.svg" alt="ReceitaCheck" h="40px" w="auto" />
+
+        <Box display="flex" gap={4}>
+          <Link as={NextLink} href="/contato">
+            Contato
+          </Link>
+          <Link as={NextLink} href="/politica-de-privacidade">
+            Política de Privacidade
+          </Link>
+        </Box>
 
         <Box display="flex" gap={4}>
           <a
