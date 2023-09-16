@@ -27,6 +27,7 @@ export function SearchBar(props: SearchBarProps) {
       px={6}
       display="flex"
       alignItems="center"
+      role="search"
       _focusWithin={{
         boxShadow: "outline",
       }}
@@ -44,11 +45,14 @@ export function SearchBar(props: SearchBarProps) {
         flex={1}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
+        inputMode="search"
+        autoFocus
+        spellCheck={false}
       />
 
       {search && (
         <IconButton
-          aria-label="Filtros das receitas"
+          aria-label="Limpar busca"
           variant="ghost"
           colorScheme="gray"
           rounded="full"
